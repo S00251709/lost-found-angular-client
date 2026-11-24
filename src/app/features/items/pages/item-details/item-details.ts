@@ -15,7 +15,7 @@ export class ItemDetails implements OnInit {
   readonly item = signal<Item | null>(null);
   
   ngOnInit(): void {
-    this.itemService.getItemById(this.id).subscribe((item) => {
+    this.itemService.getItemById(this.id()).subscribe((item) => {
       this.item.set(item);
     });
   }
