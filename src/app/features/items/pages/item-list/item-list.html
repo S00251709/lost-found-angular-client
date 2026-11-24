@@ -1,2 +1,14 @@
-<h2>Item List</h2>
-<p>list of items will appear here</p>
+<h2>Lost and Found Items</h2>
+@if (items().length === 0) {
+  <p>No items found.</p>
+} @else {
+    @for (item of items(); track item._id) {
+      <article>
+        <h3>{{item.name}}</h3>
+        <p>{{item.description}}</p>
+        <p><strong>Type:</strong> {{item.type}}</p>
+        <p><strong>Location:</strong> {{item.location}}</p>
+        <p><strong>Status:</strong> {{item.status}}</p>
+      </article>
+    }
+}

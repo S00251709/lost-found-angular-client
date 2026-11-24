@@ -1,0 +1,11 @@
+export interface Item {
+    _id?: string;
+    name: string;
+    description: string;
+    category: 'electronics' | 'clothing' | 'books' | 'bags' | 'toys' | 'other';
+    type: 'lost' | 'found';
+    location: string;
+    status: 'open' | 'resolved' ;
+    createdAt?: string;
+    updatedAt?: string;
+}
