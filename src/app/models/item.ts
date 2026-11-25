@@ -9,3 +9,11 @@ export interface Item {
     createdAt?: string;
     updatedAt?: string;
 }
+
+export interface CreatedItem {
+    name: string;
+    description: string;
+    category: 'electronics' | 'clothing' | 'books' | 'bags' | 'toys' | 'other';
+    type: 'lost' | 'found';
+    location: string;
+}
