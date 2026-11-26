@@ -1,10 +1,12 @@
 import { Component, inject, input, OnInit, signal } from '@angular/core';
 import { Item } from '../../../../models/item';
 import { ItemService } from '../../../../services/item';
+import { RouterLink } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-item-details',
-  imports: [],
+  imports: [RouterLink, MatButtonModule],
   templateUrl: './item-details.html',
   styleUrl: './item-details.scss',
 })

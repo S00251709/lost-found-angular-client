@@ -18,6 +18,14 @@ export const routes: Routes = [
         component: ItemForm
     },
     {
+        path: 'items/:id/edit',
+        component: ItemForm
+    },
+    {
+        path: 'items/:id',
+        component: ItemDetails
+    },
+    {
         path: 'items/:id',
         component: ItemDetails
     }

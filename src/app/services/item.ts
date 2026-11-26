@@ -1,7 +1,8 @@
 import { inject ,Injectable, } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Item, CreatedItem } from '../models/item';
+import { CreatedItem, Item, UpdatedItem } from '../models/item';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -20,5 +21,9 @@ export class ItemService {
 
   addItem(item: CreatedItem): Observable<Item> {
     return this.http.post<Item>(this.apiUrl, item);
+  }
+
+  updateItem(id: string, changes: UpdatedItem): Observable<Item> {
+    return this.http.put<Item>(`${this.apiUrl}/${id}`, changes)
   }
 }

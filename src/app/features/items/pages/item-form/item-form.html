@@ -1,7 +1,7 @@
 <mat-card class="item-form-card">
-  <mat-card-header>
-    <mat-card-title>Report an Item</mat-card-title>
-  </mat-card-header>
+    <mat-card-header>
+        <mat-card-title>{{ id() ? 'Edit Item' : 'Report an Item' }}</mat-card-title>
+    </mat-card-header>
 
   <mat-card-content>
     <form
@@ -9,7 +9,7 @@
       [formGroup]="itemForm"
       (ngSubmit)="onSubmit()"
     >
-      <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline">
         <mat-label>Item name</mat-label>
         <input
           matInput
@@ -24,9 +24,9 @@
         } @else if (itemForm.controls.name.hasError('maxlength')) {
           <mat-error>Item name must be 50 characters or fewer</mat-error>
         }
-      </mat-form-field>
+    </mat-form-field>
 
-      <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline">
         <mat-label>Description</mat-label>
         <textarea
           matInput
@@ -42,9 +42,9 @@
         } @else if (itemForm.controls.description.hasError('maxlength')) {
           <mat-error>Description must be 500 characters or fewer</mat-error>
         }
-      </mat-form-field>
+    </mat-form-field>
 
-      <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline">
         <mat-label>Category</mat-label>
         <mat-select formControlName="category">
           <mat-option value="electronics">Electronics</mat-option>
@@ -54,17 +54,26 @@
           <mat-option value="toys">Toys</mat-option>
           <mat-option value="other">Other</mat-option>
         </mat-select>
-      </mat-form-field>
+    </mat-form-field>
 
-      <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline">
         <mat-label>Report type</mat-label>
         <mat-select formControlName="type">
           <mat-option value="lost">Lost</mat-option>
           <mat-option value="found">Found</mat-option>
         </mat-select>
-      </mat-form-field>
+    </mat-form-field>
 
-      <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+
+        <mat-select formControlName="status">
+            <mat-option value="open">Open</mat-option>
+            <mat-option value="resolved">Resolved</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
         <mat-label>Location</mat-label>
         <input
           matInput
@@ -79,21 +88,21 @@
         } @else if (itemForm.controls.location.hasError('maxlength')) {
           <mat-error>Location must be 100 characters or fewer</mat-error>
         }
-      </mat-form-field>
-      @if (saveError(); as message){
+    </mat-form-field>
+    @if (saveError(); as message){
         <p class="error-message" role="alert">{{ message }}</p>
-      }
-      <div class="button-group">
+    }
+    <div class="button-group">
         <button
           matButton="filled"
           type="submit"
           [disabled]="itemForm.invalid || saving()"
         >
-          {{ saving() ? 'Saving...' : 'Report Item' }}
+        {{ saving() ? 'Saving...' : id() ? 'Save changes' : 'Report Item' }}
         </button>
 
         <a matButton routerLink="/items">Cancel</a>
-      </div>
+    </div>
     </form>
   </mat-card-content>
 </mat-card>

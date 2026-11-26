@@ -8,6 +8,11 @@
         <p><strong>Category:</strong> {{ itemData.category }}</p>
         <p><strong>Location:</strong> {{ itemData.location }}</p>
         <p><strong>Status</strong> {{ itemData.status }}</p>
+
+        <a
+        matButton="filled"
+        [routerLink]="['/items', itemData._id, 'edit']"
+        > Edit </a>
     </article>
 } @else {
     <p>Loading item</p>
