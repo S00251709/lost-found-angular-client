@@ -9,10 +9,22 @@
         <p><strong>Location:</strong> {{ itemData.location }}</p>
         <p><strong>Status</strong> {{ itemData.status }}</p>
 
-        <a
-        matButton="filled"
-        [routerLink]="['/items', itemData._id, 'edit']"
-        > Edit </a>
+        <div class="button-group">
+            <a
+                matButton="filled"
+                [routerLink]="['/items', itemData._id, 'edit']"
+            >
+                Edit
+            </a>
+
+            <button
+                matButton
+                type="button"
+                (click)="deleteItem(itemData)"
+            >
+                Delete
+            </button>
+            </div>
     </article>
 } @else {
     <p>Loading item</p>
