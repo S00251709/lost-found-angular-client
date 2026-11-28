@@ -1,8 +1,8 @@
 <h2>Lost and Found Items</h2>
 @if (items().length === 0) {
   <p>No items found.</p>
-} @else {
   <a routerLink="/items/new">Report an item</a>
+} @else {
     @for (item of items(); track item._id) {
       <article>
         <h3>{{item.name}}</h3>

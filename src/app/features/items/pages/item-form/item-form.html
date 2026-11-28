@@ -63,16 +63,16 @@
           <mat-option value="found">Found</mat-option>
         </mat-select>
     </mat-form-field>
+    @if (id()) {
+        <mat-form-field appearance="outline">
+            <mat-label>Status</mat-label>
 
-    <mat-form-field appearance="outline">
-        <mat-label>Status</mat-label>
-
-        <mat-select formControlName="status">
-            <mat-option value="open">Open</mat-option>
-            <mat-option value="resolved">Resolved</mat-option>
-        </mat-select>
-    </mat-form-field>
-
+            <mat-select formControlName="status">
+                <mat-option value="open">Open</mat-option>
+                <mat-option value="resolved">Resolved</mat-option>
+            </mat-select>
+        </mat-form-field>
+    }
     <mat-form-field appearance="outline">
         <mat-label>Location</mat-label>
         <input

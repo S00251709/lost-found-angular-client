@@ -25,8 +25,4 @@ export const routes: Routes = [
         path: 'items/:id',
         component: ItemDetails
     },
-    {
-        path: 'items/:id',
-        component: ItemDetails
-    }
 ];
